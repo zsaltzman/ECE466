@@ -1,0 +1,20 @@
+JFLAGS = 
+JC = javac
+.SUFFIXES: .java .class
+.java.class:
+	$(JC) $(JFLAGS) $.*.java
+
+CLASSES = \
+	TrafficGenerator.java \
+	TrafficSink.java \
+	SchedulerStarter.java \
+	PacketScheduler/PacketScheduler.java \
+	PacketScheduler/SchedulerReceiver.java \
+	PacketScheduler/SchedulerSender.java
+
+default: classes
+
+classes: $(CLASSES:.java=.class)
+
+clean:
+	$(RM) *.class
